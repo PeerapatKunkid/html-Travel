@@ -71,7 +71,7 @@
 <body>
   <!-- Nav bar -->
   <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #333333;">
-	  <a class="navbar-brand" href="#"><h3>เที่ยวหลังโควิด</h3></a>
+	  <a class="navbar-brand" href="#"><h3>เที่ยวลพบุรีหลังโควิด</h3></a>
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 	  </button>
@@ -124,11 +124,11 @@
               </div>
           </div>
           <div class="carousel-item">
-              <img class="d-block w-100" src="images/SUN1.png" alt="Third slide">
-              <!-- <div class="carousel-caption">
-                  <h5>สวรรค์ของนักดำน้ำ</h5>
-                  <p> น้ำทะเลสีฟ้าใสราวคริสตัล แนวปะการังที่อุดมไปด้วยปลาทะเลหลากสายพันธุ์</p>
-              </div> -->
+              <img class="d-block w-100" src="images/SUN3.png" alt="Third slide">
+              <div class="carousel-caption">
+                  <h1>พระปรางค์สามยอด</h1>
+                  <p> ตั้งอยู่ที่ตำบลท่าหิน อำเภอเมือง จังหวัดลพบุรี ริมทางรถไฟใกล้กับศาลพระกาฬ เป็นแหล่งท่องเที่ยวเชิงประวัติศาสตร์</p>
+              </div>
           </div>
       </div>
       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -216,7 +216,7 @@
           <p><a class="btn btn-secondary text-white" style="background-color: #4d4d4d;"href="/travel6" role="button">อ่านเพิ่มเติม &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         </div><!-- /.row -->
-
+        
 
         <div class="container">
       
@@ -226,8 +226,58 @@
               <iframe class="frame" src="https://covid19.th-stat.com/th/share/dashboard"></iframe><br><br> 
               <h3 align="center"> แผนที่ข้อมูลจังหวัด/ประเทศ</h3> <br>
               <iframe class="frame2" align="center" src="https://covid19.th-stat.com/th/share/map"></iframe> 
-          
-       
+              
+              <div class="row">
+                <hr class="featurette-divider">
+              
+                <div class="row featurette">
+                  <div class="col-md-7">
+                    <div id="downhistory"></div>
+                  <h1><br><br></h1>
+                  <h2 align="center">สถานการณ์ โควิด-19 ในลพบุรี</h2><br>
+                  <h5><div align="center" id='show5'></div></h5>
+                  <p></p>
+                </div>
+                  <div class="col-md-5">
+                    <br>
+                    <img src="https://www.chula.ac.th/wp-content/uploads/2020/03/im_cu_300363_1478.jpg" class="d-block w-100 img-thumbnail" alt="..." >
+                </div>
+              
+                
+                
+                
+                <div id='show5'></div></h5>
+              
+              
+              
+              
+              <script>
+                document.getElementById("show5").innerHTML = covid();
+        
+                function covid() {
+                    var url = 'https://covid19.th-stat.com/api/open/cases';
+                    fetch(url)
+                        .then((r) => r.json())
+                        .then(function(data) {
+                            var x = 0; //จำนวนผู้ป่วย
+                            var y = 0; //หายแล้ว
+                            var z = 0; //กำลังรักษา
+                            for (i = 0; i < data.Data.length; i++) {
+                                if (data.Data[i].ProvinceId == 52) {
+                                    //https://www.govesite.com/uploads/20150616220039Pp9UPrr/20180720112427_3_hDHa8tk.pdf อันนี้ลำดีบจังหวัด
+                                    //ลำดับที่34คือจังหวัด
+                                    x++;
+                                    if (data.Data[i].StatQuarantine == 0) {
+                                        y++;
+                                    } else z++;
+                                }
+                            }
+                            $('#show5').html("จำนวนผู้ป่วยทั้งหมดในจังหวัดลพบุรี : " + x + " คน" + "<br>" +
+                                "รักษาหายแล้วจำนวน : " + y + " คน" + "<br>" +
+                                "กำลังรักษาจำนวน : " + z + " คน");
+                        });
+                };
+            </script>
 
 
 

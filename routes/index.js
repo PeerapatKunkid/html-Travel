@@ -24,21 +24,19 @@ router.get("/travel5", function (req, res, next) {
 router.get("/travel6", function (req, res, next) {
   res.render("travel6");
 });
-router.get("/covid_19", function (req, res, next) {
-  res.render("covid_19");
-});
+
 
 router.get("/help", function (req, res, next) {
   res.render("help");
 });
 
-router.get("/login", function (req, res, next) {
-  res.render("login");
-});
 
-router.get("/register", function (req, res, next) {
-  res.render("register");
-});
+router.get('/register', (req, res) => {
+  res.render('register')
+})
+router.get('/login', (req, res) => {
+  res.render('login')
+})
 
 router.get("/content", function (req, res, next) {
   res.render("contentAll/content");
