@@ -1,0 +1,30 @@
+{
+  "name": "travel",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "ajax": "0.0.4",
+    "api": "^2.4.4",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "ejs": "~2.6.1",
+    "express": "^4.16.4",
+    "http": "0.0.1-security",
+    "http-errors": "~1.6.3",
+    "https": "^1.0.0",
+    "jquery": "^3.5.1",
+    "morgan": "~1.9.1",
+    "mysql": "^2.18.1",
+    "node-fetch": "^2.6.1",
+    "nodemon": "^2.0.5"
+  },
+  "main": "app.js",
+  "devDependencies": {},
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
